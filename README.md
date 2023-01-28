@@ -1,4 +1,5 @@
-This program is a game/app installer meant for bypassing restrictions set in place on school/workplace computers. The entire app is built in java using the swing GUI library.
+# Intro
+This program is a game/app installer meant for bypassing restrictions set in place on school/workplace computers. The entire app is built in java using the swing GUI library. As I want to make this program open source to allow potential help from people that want to join in on the project, I would like to state that I will not accept random pull requests for small things such as a typo in a comment. I will only accept pull requests that are meaningful and have purpose. 
 
 # Customization
 To customize your installation of JInstall, you will need a basic text editor (Notepad will work) and a keyboard and mouse, as well as access to your file directories.
