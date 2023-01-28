@@ -5,10 +5,17 @@ This program is a game/app installer meant for bypassing restrictions set in pla
 Please follow these instructions to set up the program on your computer for distribution.  
 ###### SIDE NOTE: I only compile standalone executable version when I have time. They are not a priority for me. Standalone versions will most likely be behind, behind from possibly major features or minor fixes and changes. If you want the most recent version, please compile it.
 ## Compiling (Linux)
+###### Ubuntu/Debian
+Open up terminal and run the following commands:
+sudo apt-get update  
+sudo apt-get install git-all  
+git clone https://github.com/Pyro569/JInstall --recursive  
 
+Now run the files through your preffered way of compiling and then enjoy.
 ## Compiling (Windows)
-
+To compile on windows, just download all the classes in a zip file then open them up in your preffered Java IDE (IntelliJ is recommended for compiling) and then build the project as you would normally.  
 ## Release
+You can download a standalone executable version of the program from the repository by downloading it from the releases tab. Be aware that a standalone executable is not my priority and is updated at a slower pace than the rest of the project. (If you would like the newest version, you can compile it yourself) Please also be aware that the download is quite large (300MB+) due to having to pack in the entire JRE.
 
 # Customization
 To customize your installation of JInstall, you will need a basic text editor (Notepad will work) and a keyboard and mouse, as well as access to your file directories.
