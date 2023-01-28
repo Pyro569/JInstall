@@ -4,14 +4,14 @@ This program is a game/app installer meant for bypassing restrictions set in pla
 To customize your installation of JInstall, you will need a basic text editor (Notepad will work) and a keyboard and mouse, as well as access to your file directories.
 
 ###### Benefits of Customizing JInstall
--Make it yours
--Change installation directory (Can make the installation areas not hidden!)
--Its easy and takes five minutes
+-Make it yours__
+-Change installation directory (Can make the installation areas not hidden!)__
+-Its easy and takes five minutes__
 
 ###### Cons of Customizing JInstall
--JInstall is configured to work perfectly as soon as it is installed
--May stop working in some instances
--More customization options may be added, which could reset your current customization.
+-JInstall is configured to work perfectly as soon as it is installed__
+-May stop working in some instances__
+-More customization options may be added, which could reset your current customization.__
 
 ### How To Customize JInstall
 Open up file explorer and head to the directory C:\Windows\tracing, here there will be a file called "JInstall.json", open that file up with a text editor.
