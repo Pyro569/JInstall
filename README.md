@@ -38,6 +38,6 @@ There will be words (such as Install Directory) and then options/words sitting n
 I will admit, I am not one to just use people's code that is in pull requests unless it is quite useful/wanted or I cannot figure out how to do it myself. I'd maybe place it as an ego thing, or maybe not, but I digress. Due to this, I probably won't look at pull requests unless I know of an outstandingly done and/or needed one that is sitting there. If I do need help with a certain part and do require help, I will most likely call upon and ask for help. Feel free to contribute however, even though I have just stated the former, I may be entertained by your contribution and add it.  
 
 # Planned features 
--Add more options to customize
--Make the GUI look good
--Update feature
+-Add more options to customize  
+-Make the GUI look good  
+-Update feature  
