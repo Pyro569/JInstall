@@ -41,11 +41,6 @@ public class JSON {
         File JSONLocation = new File(jsonPath);
         if (JSONLocation.exists()){
             readJSON();
-            if (jsonVersion.isEmpty()){
-                create();
-            } else if (jsonVersion.equals(null)) {
-                create();
-            }
         }else{
             create();
         }

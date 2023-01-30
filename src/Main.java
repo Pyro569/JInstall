@@ -1,15 +1,18 @@
 import org.json.simple.parser.ParseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.String;
 
 class GUI {
     static String user = System.getProperty("user.name"); //this should hopefully be platform independent, test later on windows 10
     static JFrame frame = new JFrame("JInstall");
     static Desktop desktop = Desktop.getDesktop();
+
     public static void main(String args[]) throws Exception {
         JSON.checkJSON();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,25 +85,33 @@ class GUI {
             }
         });
 
-        frame.add(installButton);
-        frame.add(quitButton);
-        frame.add(uncivButton);
-        frame.add(barotraumaButton);
-        frame.add(jsonEditButton);
+        JButton downloadUpdate = new JButton("Update JInstall");
+        downloadUpdate.setSize(300, 100);
+        downloadUpdate.setBounds(300, 200, 300, 100);
 
-        colorizeButton(quitButton);
-        colorizeButton(installButton);
-        colorizeButton(jsonEditButton);
-        colorizeButton(barotraumaButton);
-        colorizeButton(uncivButton);
+        downloadUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Update.downloadUpdate();
+                } catch (UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
+        addButton(frame, installButton);
+        addButton(frame, quitButton);
+        addButton(frame, uncivButton);
+        addButton(frame, barotraumaButton);
+        addButton(frame, jsonEditButton);
+        addButton(frame, downloadUpdate);
     }
     public static void readJson() {
         try {
             JSON.readJSON();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (ParseException ex) {
-            throw new RuntimeException(ex);
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
         }
     }
     public static void colorizeButton(JButton button){
@@ -108,6 +119,11 @@ class GUI {
         int RGBButton2 = (int)JSON.buttonRGBColor2;
         int RGBButton3 = (int)JSON.buttonRGBColor3;
         button.setBackground(new Color(RGBButton1, RGBButton2, RGBButton3));
+    }
+
+    public static void addButton(JFrame frame, JButton button){
+        frame.add(button);
+        colorizeButton(button);
     }
 }
 
