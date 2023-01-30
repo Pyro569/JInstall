@@ -33,3 +33,11 @@ To customize your installation of JInstall, you will need a basic text editor (N
 ### How To Customize JInstall
 Open up file explorer and head to the directory C:\Windows\tracing, here there will be a file called "JInstall.json", open that file up with a text editor.
 There will be words (such as Install Directory) and then options/words sitting next to it (such as C:/windows/tracing/JInstall). Lets say your goal is to edit the directory in which programs are installed to. Lets just change the option seated next to Install Directory, in which the default option is C:/windows/tracing/JInstall. Change the C:/windows/tracing//JInstall to the directory you want it to install to. For example I want it to download to my scripts folder, so I would change it to C:/Scripts
+
+# Contributing  
+I will admit, I am not one to just use people's code that is in pull requests unless it is quite useful/wanted or I cannot figure out how to do it myself. I'd maybe place it as an ego thing, or maybe not, but I digress. Due to this, I probably won't look at pull requests unless I know of an outstandingly done and/or needed one that is sitting there. If I do need help with a certain part and do require help, I will most likely call upon and ask for help. Feel free to contribute however, even though I have just stated the former, I may be entertained by your contribution and add it.  
+
+# Planned features 
+-Add more options to customize
+-Make the GUI look good
+-Update feature
