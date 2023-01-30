@@ -1,25 +1,24 @@
 import org.json.simple.parser.ParseException;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
 import java.lang.String;
+import java.awt.desktop.*;
+
 
 class GUI {
-    static String user = System.getProperty("user.name");
     static JFrame frame = new JFrame("JInstall");
-    static JFrame editJSON = new JFrame("Text Field");
-
+    static Desktop desktop = Desktop.getDesktop();
     public static void main(String[] args) throws Exception {
         JSON.checkJSON();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
 
-        editJSON.setSize(600, 600);
-
         frame.setLayout(null);
         frame.setVisible(true);
         buttons();
-        editJSONFrame();
     }
 
     static <bool> void buttons() {
@@ -36,7 +35,7 @@ class GUI {
 
         JButton quitButton = new JButton("Quit");
         quitButton.setSize(300, 100);
-        quitButton.setBounds(0,300,300,100);
+        quitButton.setBounds(300,0,300,100);
 
         quitButton.addActionListener(new ActionListener() {
             @Override
@@ -67,38 +66,29 @@ class GUI {
             }
         });
 
-        //JButton jsonEditButton = new JButton("Edit JSON");
-        //jsonEditButton.setSize(300, 100);
-        //jsonEditButton.setBounds(0, 200, 300, 100);
+        JButton jsonEditButton = new JButton("Open Config JSON");
+        jsonEditButton.setSize(300, 100);
+        jsonEditButton.setBounds(300, 100, 300, 100);
 
-        //boolean textOpened = false;
-        //jsonEditButton.addActionListener(new ActionListener() {
-            //@Override
-            //public void actionPerformed(ActionEvent e) {
-                //if(textOpened == false){
-                    //editJSON.setVisible(true);
-                    //boolean textOpened = true;
-                //}else{
-                    //editJSON.setVisible(false);
-                    //boolean textOpened = false;
-                //}
-            //}
-        //});
+        jsonEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    File jsonFile = new File("C:/windows/tracing/JInstall.json");
+                try {
+                    desktop.open(jsonFile);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
 
         frame.add(installButton);
         frame.add(quitButton);
         frame.add(uncivButton);
         frame.add(barotraumaButton);
+        frame.add(jsonEditButton);
     }
 
-    public static void editJSONFrame() {
-        JTextField installDirectory;
-        installDirectory = new JTextField(20);
-        installDirectory.setSize(20,20);
-        installDirectory.setBounds(50, 100, 200,30);
-
-        editJSON.add(installDirectory);
-    }
 
     public static void readJson() {
         try {

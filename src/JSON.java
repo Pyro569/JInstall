@@ -25,9 +25,6 @@ public class JSON {
         readJSON();
     }
 
-    public static void setVars() throws Exception {
-
-    }
 
     public static void checkJSON() throws Exception {
         String jsonPath = "C:/windows/tracing/JInstall.json";
@@ -49,6 +46,6 @@ public class JSON {
         buttonColorTheme = (String)json.get("Button Color Theme");
     }
     public static void main(String args[]) throws Exception {
-        checkJSON();
+
     }
 }
