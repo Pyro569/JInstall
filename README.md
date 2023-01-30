@@ -6,9 +6,11 @@ Please follow these instructions to set up the program on your computer for dist
 ###### SIDE NOTE: I only compile standalone executable version when I have time. They are not a priority for me. Standalone versions will most likely be behind, behind from possibly major features or minor fixes and changes. If you want the most recent version, please compile it.
 ## Compiling (Linux)
 ###### Ubuntu/Debian
-Open up terminal and run the following commands:  
+Open up terminal and run the following commands:
+###### If Git is not installed already:  
 sudo apt-get update  
 sudo apt-get install git-all  
+###### If Git is installed already:  
 git clone https://github.com/Pyro569/JInstall --recursive  
 
 Now run the files through your prefered way of compiling and then enjoy.
