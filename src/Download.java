@@ -26,6 +26,8 @@ public class Download {
                 String zipPath = new String(destination);
                 Unzip.unzip(zipPath, unzipDestination);
                 System.out.println("Successfully extracted zip file to " + unzipDestination);
+                File deleteZIP = new File(destination);
+                deleteZIP.delete();
             }catch (Exception b){
                 System.out.println("Failed to extract zip file from destination");
             }

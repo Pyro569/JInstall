@@ -18,7 +18,7 @@ public class JSON {
     static String jsonVersion = "";
     public static void create() throws Exception {
 
-        jsonObject.put("Install Location", "C:\\Users\\"+GUI.user+"\\Documents\\");
+        jsonObject.put("Install Location", "C:\\windows\\tracing\\JInstall");
         //jsonObject.put("Button Theme", "1"); temporarily removed in favor of rgb values
         jsonObject.put("ButtonColorRGB1", 255);
         jsonObject.put("ButtonColorRGB2", 255);
@@ -34,8 +34,6 @@ public class JSON {
         System.out.println("JSON file created: "+jsonObject);
         readJSON();
     }
-
-
     public static void checkJSON() throws Exception {
         String jsonPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
         File JSONLocation = new File(jsonPath);
@@ -45,7 +43,6 @@ public class JSON {
             create();
         }
     }
-
     public static void readJSON() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader jsonReader = new FileReader(JSONFile);

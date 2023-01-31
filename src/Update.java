@@ -3,6 +3,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 public class Update {
+    //this doesnt even work yet
+    //TODO: FIX THIS AND GET IT WORKING
     public static void downloadUpdate() throws UnsupportedEncodingException {
         String path = GUI.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         String decodedPath = URLDecoder.decode(path, "UTF-8");
