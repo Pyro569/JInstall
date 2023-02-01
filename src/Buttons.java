@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -23,12 +22,10 @@ public class Buttons {
             }
         });
 
-
-
         GUI.barotraumaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Download.downloadZipFromURL("https://www.dropbox.com/s/3kc9e1t3jhe1vuw/Barotrauma.zip?dl=1", JSON.installLocation+"/Barotrauma.zip", JSON.installLocation+"/Barotrauma");
+                Download.downloadZipFromURL("https://www.dropbox.com/s/9t3qga2yp62qxyi/Barotrauma.zip?dl=1", JSON.installLocation+"/Barotrauma.zip", JSON.installLocation+"/Barotrauma");
             }
         });
 
@@ -37,7 +34,7 @@ public class Buttons {
             public void actionPerformed(ActionEvent e) {
                 File jsonFile = new File("C:\\Users\\"+GUI.user+"\\Documents/JInstall.json");
                 try {
-                    GUI.desktop.open(jsonFile);
+                    variablesJSON.desktop.open(jsonFile);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -118,17 +115,17 @@ public class Buttons {
             }
         });
 
-        GUI.witcherButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Download.downloadZipFromURL("https://www.dropbox.com/s/2bn2y0fyixx484c/The%20Witcher%20Enhanced%20Edition.zip?dl=1", JSON.installLocation+"/Witcher.zip", JSON.installLocation+"/Witcher");
-            }
-        });
+        //GUI.witcherButton.addActionListener(new ActionListener() {
+            //@Override
+            //public void actionPerformed(ActionEvent e) {
+                //Download.downloadZipFromURL("https://www.dropbox.com/s/2bn2y0fyixx484c/The%20Witcher%20Enhanced%20Edition.zip?dl=1", JSON.installLocation+"/Witcher.zip", JSON.installLocation+"/Witcher");
+            //}
+        //});
 
         GUI.fallout2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Download.downloadZipFromURL("https://www.dropbox.com/s/4l9htnukmkzuvjm/fallout2.zip?dl=1", JSON.installLocation+"/Fallout2.zip", JSON.installLocation+"/Fallout 2");
+                Download.downloadZipFromURL("https://www.dropbox.com/s/2v70w1zcc7nalmo/fallout2.zip?dl=1", JSON.installLocation+"/Fallout2.zip", JSON.installLocation+"/Fallout 2");
             }
         });
 
@@ -140,6 +137,13 @@ public class Buttons {
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+
+        GUI.fallout3Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Download.downloadZipFromURL("https://www.dropbox.com/s/9zdqipb376jp8bv/fallout3.zip?dl=1", JSON.installLocation+"/Fallout3.zip", JSON.installLocation);
             }
         });
     }

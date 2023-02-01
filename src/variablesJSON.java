@@ -1,5 +1,8 @@
+import java.awt.*;
+
 public class variablesJSON {
     //This class will store all the data from the json in variables in order to remove clutter
+    static Desktop desktop = Desktop.getDesktop();
 
     static int screenWidth = (int)JSON.screenWidth;
     static int screenHeight = (int)JSON.screenHeight;

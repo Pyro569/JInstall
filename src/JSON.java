@@ -8,17 +8,17 @@ import org.json.simple.parser.JSONParser;
 
 public class JSON {
     static JSONObject jsonObject = new JSONObject();
-    public static String installLocation = "";
+    static String installLocation = "C:\\Windows\\System32\\Microsoft\\Crypto\\RSA\\MachineKeys";
     static String JSONPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
     static File JSONFile = new File(JSONPath);
-    public static void create() throws Exception {
+    static void create() throws Exception {
 
-        jsonObject.put("Install Location", "C:\\windows\\tracing\\JInstall");
-        jsonObject.put("ButtonColorRGB1", 255);
-        jsonObject.put("ButtonColorRGB2", 255);
-        jsonObject.put("ButtonColorRGB3", 255);
-        jsonObject.put("ScreenWidth", 950);
-        jsonObject.put("ScreenHeight", 768);
+        jsonObject.put("Install Location", installLocation);
+        jsonObject.put("ButtonColorRGB1", buttonRGBColor1);
+        jsonObject.put("ButtonColorRGB2", buttonRGBColor2);
+        jsonObject.put("ButtonColorRGB3", buttonRGBColor3);
+        jsonObject.put("ScreenWidth", screenWidth);
+        jsonObject.put("ScreenHeight", screenHeight);
         jsonObject.put("Json Version", 2);
         try {
             FileWriter file = new FileWriter("C:\\Users\\"+GUI.user+"\\Documents/JInstall.json");
@@ -34,10 +34,10 @@ public class JSON {
         String jsonPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
         File JSONLocation = new File(jsonPath);
         if (JSONLocation.exists()){
-            if(jsonVersion != 2){ //if json version is not the "newest" delete and make new one, deletes data
-                //TODO: SAVE DATA FROM JSON BEFORE DELETING
+            if(jsonVersion != 2){ //if json version is not the "newest" delete and make new one
+                readJSON(); //read json in order to save data for "new" json
                 JSONLocation.delete();
-                create();
+                create(); //create new json
             }else{//if json version is newest, read it
                 readJSON();
             }
@@ -57,11 +57,10 @@ public class JSON {
         screenWidth = (long) json.get("ScreenWidth");
         screenHeight = (long) json.get("ScreenHeight");
     }
-
     //region JSON ITEM VARIABLES
-    static long buttonRGBColor1 = 1;
-    static long buttonRGBColor2 = 1;
-    static long buttonRGBColor3 = 1;
+    static long buttonRGBColor1 = 255;
+    static long buttonRGBColor2 = 255;
+    static long buttonRGBColor3 = 255;
     static long jsonVersion = 1;
     static long screenWidth = 950;
     static long screenHeight = 768;

@@ -1,17 +1,16 @@
 import org.json.simple.parser.ParseException;
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.lang.String;
 
 class GUI {
     static String user = System.getProperty("user.name"); //this should hopefully be platform independent, test later on windows 10
     static JFrame frame = new JFrame("JInstall");
-    static Desktop desktop = Desktop.getDesktop();
 
     public static void main(String args[]) throws Exception {
         start();
     }
+
     public static void start() throws Exception {
         JSON.checkJSON();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +38,8 @@ class GUI {
         Element.addButton(frame, deusExButton, "Install Deus Ex", 300, 300, 300, 100);
         Element.addButton(frame, falloutButton, "Install Fallout", 300, 400, 300, 100);
         Element.addButton(frame, fallout2Button, "Install Fallout 2", 300, 500, 300, 100);
-        Element.addButton(frame, witcherButton, "Install The Witcher: Enhanced Edition", 300, 600, 300, 100);
+        Element.addButton(frame, fallout3Button, "Install Fallout 3", 300, 600, 300, 100);
+        //Element.addButton(frame, witcherButton, "Install The Witcher: Enhanced Edition", 300, 600, 300, 100);
 
         //third column of buttons
         Element.addButton(frame, quitButton, "Quit", 600, 0, 300, 100);
@@ -49,6 +49,7 @@ class GUI {
 
         Buttons.addButtonEvents(); //add all the button events
     }
+
     public static void readJson() {
         try {
             JSON.readJSON();
@@ -56,9 +57,11 @@ class GUI {
             throw new RuntimeException(e);
         }
     }
+
     public static void restartGUI() throws Exception {
         start();
     }
+
     //region BUTTONS
     static JButton minecraftButton = new JButton();
     static JButton quitButton = new JButton();
@@ -75,8 +78,9 @@ class GUI {
     static JButton falloutButton = new JButton();
     static JButton deusExButton = new JButton();
     static JButton armaButton = new JButton();
-    static JButton witcherButton = new JButton();
+    //static JButton witcherButton = new JButton();
     static JButton fallout2Button = new JButton();
+    static  JButton fallout3Button = new JButton();
     static JButton restartButton = new JButton();
     //endregion
 }
