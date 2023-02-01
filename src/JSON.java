@@ -11,17 +11,15 @@ public class JSON {
     public static String installLocation = "";
     static String JSONPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
     static File JSONFile = new File(JSONPath);
-    static long buttonRGBColor1 = 1;
-    static long buttonRGBColor2 = 1;
-    static long buttonRGBColor3 = 1;
-    static long jsonVersion = 1;
     public static void create() throws Exception {
 
         jsonObject.put("Install Location", "C:\\windows\\tracing\\JInstall");
         jsonObject.put("ButtonColorRGB1", 255);
         jsonObject.put("ButtonColorRGB2", 255);
         jsonObject.put("ButtonColorRGB3", 255);
-        jsonObject.put("Json Version", 1);
+        jsonObject.put("ScreenWidth", 950);
+        jsonObject.put("ScreenHeight", 768);
+        jsonObject.put("Json Version", 2);
         try {
             FileWriter file = new FileWriter("C:\\Users\\"+GUI.user+"\\Documents/JInstall.json");
             file.write(jsonObject.toJSONString());
@@ -36,7 +34,7 @@ public class JSON {
         String jsonPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
         File JSONLocation = new File(jsonPath);
         if (JSONLocation.exists()){
-            if(jsonVersion != 1){ //if json version is not the "newest" delete and make new one, deletes data
+            if(jsonVersion != 2){ //if json version is not the "newest" delete and make new one, deletes data
                 //TODO: SAVE DATA FROM JSON BEFORE DELETING
                 JSONLocation.delete();
                 create();
@@ -56,5 +54,16 @@ public class JSON {
         buttonRGBColor2 = (long) json.get("ButtonColorRGB2"); //green value
         buttonRGBColor3 = (long) json.get("ButtonColorRGB3"); //blue value
         jsonVersion = (long) json.get("Json Version");
+        screenWidth = (long) json.get("ScreenWidth");
+        screenHeight = (long) json.get("ScreenHeight");
     }
+
+    //region JSON ITEM VARIABLES
+    static long buttonRGBColor1 = 1;
+    static long buttonRGBColor2 = 1;
+    static long buttonRGBColor3 = 1;
+    static long jsonVersion = 1;
+    static long screenWidth = 950;
+    static long screenHeight = 768;
+    //endregion
 }

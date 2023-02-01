@@ -1,5 +1,4 @@
 import org.json.simple.parser.ParseException;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -16,9 +15,8 @@ class GUI {
     public static void start() throws Exception {
         JSON.checkJSON();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 768);
-
-        frame.setLayout(null);
+        frame.setSize(variablesJSON.screenWidth, variablesJSON.screenHeight);
+        frame.setLayout(null); //TODO: MAKE FRAME LAYOUT BASED ON JSON FILE
         frame.setVisible(true);
         JSON.readJSON();
         buttons();
@@ -61,6 +59,7 @@ class GUI {
     public static void restartGUI() throws Exception {
         start();
     }
+    //region BUTTONS
     static JButton minecraftButton = new JButton();
     static JButton quitButton = new JButton();
     static JButton uncivButton = new JButton();
@@ -79,5 +78,6 @@ class GUI {
     static JButton witcherButton = new JButton();
     static JButton fallout2Button = new JButton();
     static JButton restartButton = new JButton();
+    //endregion
 }
 

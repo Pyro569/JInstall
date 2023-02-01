@@ -1,8 +1,6 @@
 import org.apache.commons.io.FileUtils;
 import java.net.URL;
 import java.io.File;
-
-
 public class Download {
 
     //public static void downloadFileFromURL(String url, String destination){
