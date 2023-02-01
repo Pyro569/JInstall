@@ -130,5 +130,16 @@ public class Buttons {
                 Download.downloadZipFromURL("https://www.dropbox.com/s/4l9htnukmkzuvjm/fallout2.zip?dl=1", JSON.installLocation+"/Fallout2.zip", JSON.installLocation+"/Fallout 2");
             }
         });
+
+        GUI.restartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    GUI.restartGUI();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
 }
