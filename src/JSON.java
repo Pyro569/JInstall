@@ -45,7 +45,13 @@ public class JSON {
         }
     }
     public static void readJSON() throws IOException, ParseException {
-        isLinux();
+        if (isLinux = true){
+            String homedir = System.getProperty("user.home");
+            File _homeDir = new File(homedir);
+            JSONPath = _homeDir + "/Documents/JInstall.json";
+            String _JSONPATH = JSONPath;
+            JSONFile = new File(_JSONPATH);
+        }
         JSONParser parser = new JSONParser();
         FileReader jsonReader = new FileReader(JSONFile);
         JSONObject json = (JSONObject) parser.parse(jsonReader);
