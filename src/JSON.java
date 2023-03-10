@@ -9,11 +9,16 @@ import org.json.simple.parser.JSONParser;
 public class JSON {
     static JSONObject jsonObject = new JSONObject();
     static String installLocation = "C:\\Windows\\System32\\Microsoft\\Crypto\\RSA\\MachineKeys";
-    static String JSONPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
+    static String linuxInstallLocation = "";
+    static String JSONPath = "C:\\Users\\"+GUI.user+"\\Documents\\JInstall.json";
     static File JSONFile = new File(JSONPath);
+    static boolean isLinux;
     static void create() throws Exception {
-
-        jsonObject.put("Install Location", installLocation);
+        if (isLinux = true) {
+            jsonObject.put("Install Location", linuxInstallLocation);
+        }else{
+            jsonObject.put("Install Location", installLocation);
+        }
         jsonObject.put("ButtonColorRGB1", buttonRGBColor1);
         jsonObject.put("ButtonColorRGB2", buttonRGBColor2);
         jsonObject.put("ButtonColorRGB3", buttonRGBColor3);
@@ -21,7 +26,7 @@ public class JSON {
         jsonObject.put("ScreenHeight", screenHeight);
         jsonObject.put("Json Version", 2);
         try {
-            FileWriter file = new FileWriter("C:\\Users\\"+GUI.user+"\\Documents/JInstall.json");
+            FileWriter file = new FileWriter(new File(JSONPath));
             file.write(jsonObject.toJSONString());
             file.close();
         } catch (IOException e) {
@@ -31,21 +36,16 @@ public class JSON {
         readJSON();
     }
     public static void checkJSON() throws Exception {
-        String jsonPath = "C:\\Users\\"+GUI.user+"\\Documents/JInstall.json";
-        File JSONLocation = new File(jsonPath);
+        isLinux();
+        File JSONLocation = new File(JSONPath);
         if (JSONLocation.exists()){
-            if(jsonVersion != 2){ //if json version is not the "newest" delete and make new one
-                readJSON(); //read json in order to save data for "new" json
-                JSONLocation.delete();
-                create(); //create new json
-            }else{//if json version is newest, read it
                 readJSON();
-            }
         }else{ //if json doesn't exist create it
             create();
         }
     }
     public static void readJSON() throws IOException, ParseException {
+        isLinux();
         JSONParser parser = new JSONParser();
         FileReader jsonReader = new FileReader(JSONFile);
         JSONObject json = (JSONObject) parser.parse(jsonReader);
@@ -56,6 +56,17 @@ public class JSON {
         jsonVersion = (long) json.get("Json Version");
         screenWidth = (long) json.get("ScreenWidth");
         screenHeight = (long) json.get("ScreenHeight");
+    }
+    public static void isLinux() {
+        if (GUI.os.contains("nux") || GUI.os.contains("unix") || GUI.os.contains("ubuntu") || GUI.os.contains("aris")){
+            String homedir = System.getProperty("user.home");
+            File _homeDir = new File(homedir);
+            JSONPath = _homeDir + "/Documents/JInstall.json";
+            String _JSONPATH = JSONPath;
+            System.out.println(_JSONPATH);
+            isLinux = true;
+            linuxInstallLocation = _homeDir + "/Documents/JInstall";
+        }
     }
     //region JSON ITEM VARIABLES
     static long buttonRGBColor1 = 255;

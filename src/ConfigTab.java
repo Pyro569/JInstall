@@ -20,7 +20,7 @@ public class ConfigTab {
         jsonEditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                File jsonFile = new File("C:\\Users\\"+GUI.user+"\\Documents/JInstall.json");
+                File jsonFile = new File(JSON.JSONPath);
                 try {
                     VariablesJSON.desktop.open(jsonFile);
                 } catch (IOException ex) {

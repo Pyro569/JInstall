@@ -2,12 +2,14 @@ import org.json.simple.parser.ParseException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.lang.String;
 
 class GUI {
     static String user = System.getProperty("user.name"); //this should hopefully be platform independent, test later on windows 10
     static JFrame mainFrame = new JFrame("JInstall");
+    static String os = System.getProperty("os.name");
     static JFrame gamesFrame = new JFrame("Games Library");
     static JFrame configFrame = new JFrame("JInstall Config");
     static JFrame softwareFrame = new JFrame("Software Library");
@@ -16,7 +18,15 @@ class GUI {
         start();
     }
 
-    static void start() throws Exception {
+    static void start() throws Exception{
+        //TODO: MAKE FRAME LAYOUT BASED ON JSON FILE
+        if (os.contains("nux") || os.contains("unix") || os.contains("ubuntu") || os.contains("aris")){
+            System.out.println("Detected unix operating system...");
+            JSON.isLinux = true;
+            String homedir = System.getProperty("user.home");
+            File _homeDir = new File(homedir);
+            JSON.JSONPath = _homeDir + "/Documents/JInstall.json";
+        }
         JSON.checkJSON();
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(VariablesJSON.screenWidth, VariablesJSON.screenHeight);
